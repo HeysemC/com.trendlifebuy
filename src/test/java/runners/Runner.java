@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = "stepDefinitions",
         plugin = {"pretty", "html:target/cucumber-reports.html", "json:target/json-reports/cucumber.json", "junit:target/xml-report/cucumber.xml"},
         dryRun = false,
-        tags = "@US001"
+        tags = "@US002"
 )
 public class Runner {
 }
