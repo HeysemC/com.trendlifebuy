@@ -18,17 +18,18 @@ public class US001 {
         Driver.getDriver().get(ConfigReader.getProperty("url"));
         logger.info(ConfigReader.getProperty("url") + " adresine gidildi!");
     }
-    @Given("Sitenin title'inin {string} oldugunu dogrulayin.")
-    public void sitenin_title_inin_oldugunu_dogrulayin(String string) {
-        String title = Driver.getDriver().getTitle();
-        logger.info("Sitenin basligi degiskene atandi!");
-        Assert.assertTrue(title.contains(string));
+    @Given("Sitenin title'inin {string} oldugunu dogrular.")
+    public void sitenin_title_inin_oldugunu_dogrular(String string) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
         logger.info("Site basliginin kontrolu yapildi!");
-        ReusableMethods.takeScreenShot("HomePage");
-        logger.info("Ekran resmi kaydedildi!");
     }
-    @Given("Browser'i kapatin.")
-    public void browser_i_kapatin() {
+    @Given("URL'in {string} oldugunu dogrular.")
+    public void urlin_oldugunu_dogrular(String string) {
+        Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+        logger.info("Site title kontrolu yapildi!");
+    }
+    @Given("Browser'i kapatir.")
+    public void browser_i_kapatir() {
         Driver.closeDriver();
         logger.info("Browser kapatildi!");
     }
