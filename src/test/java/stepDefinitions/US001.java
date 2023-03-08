@@ -25,7 +25,7 @@ public class US001 {
     }
     @Given("URL'in {string} oldugunu dogrular.")
     public void urlin_oldugunu_dogrular(String string) {
-        Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains(string));
         logger.info("Site title kontrolu yapildi!");
     }
     @Given("Browser'i kapatir.")

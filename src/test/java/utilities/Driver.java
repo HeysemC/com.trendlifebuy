@@ -24,7 +24,9 @@ public class Driver {
                     driver = new SafariDriver();
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    ChromeOptions ops = new ChromeOptions();
+                    ops.addArguments("--remote-allow-origins=*");
+                    driver = new ChromeDriver(ops);
             }
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
