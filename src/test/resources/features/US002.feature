@@ -25,3 +25,8 @@ Feature: Home page sayfasının üst menüsündeki fonksiyonların aktif olduğu
     * Kullanici trendlifebuy.com adresine gider.
     * Wishlist linkine tiklar ve aktif bir hesapla kullanici girisi yapar.
     * Browser'i kapatir.
+
+  Scenario: [TC005] cart butonu ilgili sayfaya yönlendirmeli
+    * Kullanici trendlifebuy.com adresine gider.
+    * Cart linkine tiklar ve yönlendirilen sayfayi dogrular.
+    * Browser'i kapatir.

@@ -54,4 +54,10 @@ public class US002 {
 
         Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("my-wishlist"));
     }
+
+    @Given("Cart linkine tiklar ve yönlendirilen sayfayi dogrular.")
+    public void cart_linkine_tiklar_ve_yonlendirilen_sayfayi_dogrular() {
+        homePage.headerMenuLinks.get(3).click();
+        Assert.assertTrue(Driver.getDriver().getCurrentUrl().contains("cart"));
+    }
 }
