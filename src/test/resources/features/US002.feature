@@ -11,7 +11,17 @@ Feature: Home page sayfasının üst menüsündeki fonksiyonların aktif olduğu
     |Google Store  |
     |Apple Store |
 
-  Scenario: [TC_002] Track Your Order butonu ilgili sayfaya yönlendirmeli
+  Scenario: [TC002] Track Your Order butonu ilgili sayfaya yönlendirmeli
     * Kullanici trendlifebuy.com adresine gider.
-    * "Track Your Link" linkine tiklar ve yönlendirilen sayfayi dogrular.
+    * Track Your Link linkine tiklar ve yönlendirilen sayfayi dogrular.
+    * Browser'i kapatir.
+
+  Scenario: [TC003] Compare butonu ilgili sayfaya yönlendirmeli
+    * Kullanici trendlifebuy.com adresine gider.
+    * Compare linkine tiklar ve yönlendirilen sayfayi dogrular.
+    * Browser'i kapatir.
+
+  Scenario: [TC004] Kullanıcı olarak giriş yapıldıktan sonra Wishlist butonu ilgili sayfaya yönlendirmeli
+    * Kullanici trendlifebuy.com adresine gider.
+    * Wishlist linkine tiklar ve aktif bir hesapla kullanici girisi yapar.
     * Browser'i kapatir.
