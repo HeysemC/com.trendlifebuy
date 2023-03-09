@@ -19,4 +19,20 @@ public class AdminLoginPage {
 
     @FindBy(xpath = "//button[text()='Sign In']")
     public WebElement signInButton;
+
+    // admin ikonu
+    @FindBy(xpath = "//*[@id='profile_pic']")
+    public WebElement profilikonu;
+
+    // admin ikonu/admin ismi
+    @FindBy(xpath = "//*[text()='Admin019']")
+    public WebElement adminName;
+    //zil butonu
+    @FindBy(xpath = "//*[@class='fa fa-bell']")
+    public WebElement zilButtonu;
+
+    //zil buton/setting
+    @FindBy(xpath = "//*[text()='Setting']")
+    public WebElement settingButton;
+
 }
