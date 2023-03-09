@@ -66,9 +66,9 @@ public class ReusableMethods {
         }
     }
 
-    public static WebElement waitForVisibility(WebElement element, int timeout) {
+    public static void waitForVisibility(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
-        return wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 
     public static WebElement waitForVisibility(By locator, int timeout) {
