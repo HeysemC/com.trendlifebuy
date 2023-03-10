@@ -41,7 +41,57 @@ public class AdminProductsPage {
     @FindBy(id = "product_sku_id")
     public WebElement productBySKUList;
 
+ //3-Product List'te ürünler SL, Name, Product Type, Brand, Image,
+ // Stock, Status, Action basliklari altinda listelendigi dogrulanir
+
+ //***********Harun Yucel locaters******************
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[1]")
+ public WebElement sl;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[2]")
+ public WebElement Name;
 
 
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[3]")
+ public WebElement ProductType;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[4]")
+ public WebElement Brand;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[5]")
+ public WebElement Image;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[6]")
+ public WebElement Stock;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[7]")
+ public WebElement Status;
+
+ @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[8]")
+ public WebElement Action;
+
+
+ /*
+4-Quick Search TextBox'i ile Product List icerisinde arama yapilabildigi dogrulanmali
+ */
+ //***********Harun Yucel locaters******************
+
+ @FindBy(xpath = "(//input[@placeholder='Quick Search'])[1]")
+ public WebElement QuickSearchTextBox;
+
+ /*
+ 5-Product List icerisinde Status sütunundan ürün statusu degistirilebildigi dogrulanmali
+  */
+
+ //***********Harun Yucel locaters******************
+ @FindBy(xpath = "(//button[@class='dt-button buttons-collection buttons-colvis'])[1]")
+ public WebElement productListfilter;
+
+ @FindBy(xpath = "(//label[@class='switch_toggle'])[1]")
+ public WebElement statusStun;
+
+ @FindBy(xpath = "//span[text()='SL']")
+ public WebElement slFilter;
 
 }

@@ -1,22 +1,19 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
 import pages.AdminProductsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import java.awt.*;
-import java.util.List;
-import java.util.Set;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class US0035 {
+public class US035 {
 
     AdminProductsPage adminProductsPage = new AdminProductsPage();
     @Given("Login to Trendlifeby page as admin")
@@ -75,6 +72,56 @@ public class US0035 {
 
    // ProductList, AlertList, OutOfStockList, DisabledProductList,
   // ProductBySKUList linklerinin görünürlügü dogrulandı
+    }
+    @Given("Go to Prouducts List page")
+    public void go_to_prouducts_list_page() {
+        //Prouducts list sayfasına gidilir
+        adminProductsPage.producst.click();
+        adminProductsPage.productList.click();
+    }
+    @Given("SL, Name, Product Type, Brand, Image, It appears to be listed under the headings Stock, Status, Action")
+    public void sl_name_product_type_brand_ımage_ıt_appears_to_be_listed_under_the_headings_stock_status_action() {
+        // SL, Name, Product Type, Brand, Image,
+        // Stock, Status, Action basliklari altinda listelendigi gorulur
+
+       assertTrue(adminProductsPage.sl.isDisplayed());
+       assertTrue(adminProductsPage.Name.isDisplayed());
+       assertTrue(adminProductsPage.ProductType.isDisplayed());
+       assertTrue(adminProductsPage.Brand.isDisplayed());
+       assertTrue(adminProductsPage.Image.isDisplayed());
+       assertTrue(adminProductsPage.Stock.isDisplayed());
+       assertTrue(adminProductsPage.Status.isDisplayed());
+       assertTrue(adminProductsPage.Action.isDisplayed());
+
+       Driver.closeDriver();
+
+    }
+
+    @Given("Verified that Quick Search TextBox button is active")
+    public void verified_that_quick_search_text_box_button_is_active() {
+
+       assertTrue(adminProductsPage.QuickSearchTextBox.isEnabled());
+       adminProductsPage.QuickSearchTextBox.sendKeys("Exclusive Bag 1");
+        ReusableMethods.waitFor(2);
+       Driver.closeDriver();
+
+        // Quick Search TextBox butonunun aktif oldugu dogrulandı
+    }
+
+    @Given("Product status can be changed from the Status column in the Product List verified.")
+    public void product_status_can_be_changed_from_the_status_column_in_the_product_list_verified() {
+
+    //adminProductsPage.productListfilter.click();
+    //adminProductsPage.slFilter.click();
+   // Actions actions = new Actions(Driver.getDriver());
+    //actions.moveToElement(adminProductsPage.statusStun).perform();
+        Driver.getDriver().findElement(By.xpath("(//td[@class='sorting_1'])[1]")).click();
+    ReusableMethods.waitFor(2);
+    //adminProductsPage.slFilter.click();
+    adminProductsPage.statusStun.click();
+
+
+   // Product List icerisinde Status sütunundan ürün statusu degistirilebildigi dogrulandı
     }
 
 
