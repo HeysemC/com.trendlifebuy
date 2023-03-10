@@ -35,4 +35,14 @@ public class AdminLoginPage {
     @FindBy(xpath = "//*[text()='Setting']")
     public WebElement settingButton;
 
+    // zil button/notificatin yazısı
+    @FindBy(xpath = "//*[text()='Notifications']")
+    public  WebElement notificationText;
+
+    //zil button/Setting yazısı
+    @FindBy(xpath = "//*[text()='Setting']")
+    public WebElement SettingButton;
+
+
+
 }
