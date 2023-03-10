@@ -74,5 +74,10 @@ public class AdminGiftCardPage {
     @FindBy(xpath = "(//div[@class='slider round'])[1]")
     public WebElement statusChange;
 
+    @FindBy(xpath = "//tbody/tr[1]/td[2]")
+    public WebElement tableFirstName;
+
+    @FindBy(xpath = "//tbody/tr[2]/td[2]")
+    public WebElement viewTableName;
 
 }
