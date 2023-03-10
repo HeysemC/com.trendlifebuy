@@ -126,4 +126,22 @@ public class US036 {
 
 
     }
+
+
+    @And("Verify that the name in the Name field and the gift card name selected in the Gift Card List are the same")
+    public void verifyThatTheNameInTheNameFieldAndTheGiftCardNameSelectedInTheGiftCardListAreTheSame() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        String expectedName=adminGiftCardPage.tableFirstName.getText();
+        adminGiftCardPage.select.click();
+        adminGiftCardPage.view.click();
+        ReusableMethods.waitForVisibility(adminGiftCardPage.viewTableName,10);
+        String actualName=adminGiftCardPage.viewTableName.getText();
+        String regex = "[^a-zA-Z0-9]";
+        String cleanString = actualName.replaceAll(regex, "");
+        Assert.assertEquals(cleanString,expectedName);
+
+
+
+    }
 }

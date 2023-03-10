@@ -30,7 +30,7 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     Then  Click giftCardList
     Then  Verify that Name,SKU,Thumbnail Image,Selling Price,Number of Sale and Status information is displayed
     Then  Close the page
-@US036
+
   Scenario:[TC04] It should be verified that the gift card selected under the
            Status Title in the Gift Card List can be set as active or passive.
 
@@ -53,7 +53,13 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     And   Verify view,edit and delete links are visible
     And   Close the page
 
-
+  @US036
   Scenario:[TC006] On the page that opens when the View link is clicked on the Select tab under the Actions heading,
            it should be verified that the name in the Name field and the gift card name selected in the
            Gift Card List are the same.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    And   Verify that the name in the Name field and the gift card name selected in the Gift Card List are the same
