@@ -4,15 +4,18 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.testng.asserts.SoftAssert;
 import pages.AdminGiftCardPage;
 import pages.AdminLoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+
 public class US036 {
     AdminLoginPage adminLoginPage;
     AdminGiftCardPage adminGiftCardPage;
+    SoftAssert softAssert;
     @Given("Navigate to {string}")
     public void navigate_to(String string) {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
@@ -61,13 +64,16 @@ public class US036 {
     public void verifyThatNameSKUThumbnailImageSellingPriceNumberOfSaleAndStatusInformationIsDisplayed() {
 
         adminGiftCardPage=new AdminGiftCardPage();
+        softAssert=new SoftAssert();
 
-        Assert.assertTrue(adminGiftCardPage.name.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.SKU.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.thumbnailImage.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.status.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.numberOfSale.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.sellingPrice.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.name.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.sku.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.thumbnailImage.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.status.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.numberOfSale.isDisplayed());
+        softAssert.assertTrue(adminGiftCardPage.sellingPrice.isDisplayed());
+
+        softAssert.assertAll();
     }
 
     @Then("Click select button")
@@ -79,10 +85,45 @@ public class US036 {
 
     @And("Verify view,edit and delete links are visible")
     public void verifyViewEditAndDeleteLinksAreVisible() {
+       adminGiftCardPage=new AdminGiftCardPage();
+       softAssert=new SoftAssert();
+
+       softAssert.assertTrue(adminGiftCardPage.view.isDisplayed());
+       softAssert.assertTrue(adminGiftCardPage.delete.isDisplayed());
+       softAssert.assertTrue(adminGiftCardPage.edit.isDisplayed());
+
+       softAssert.assertAll();
+    }
+
+
+    @And("Verify that when we click this button, the status of this button has changed")
+    public void verifyThatWhenWeClickThisButtonTheStatusOfThisButtonHasChanged() {
         adminGiftCardPage=new AdminGiftCardPage();
 
-        Assert.assertTrue(adminGiftCardPage.view.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.delete.isDisplayed());
-        Assert.assertTrue(adminGiftCardPage.edit.isDisplayed());
+        adminGiftCardPage.select.click();
+        adminGiftCardPage.view.click();
+
+        if (adminGiftCardPage.statusActive.isDisplayed()){
+            Driver.getDriver().navigate().back();
+            adminGiftCardPage.statusChange.click();
+            ReusableMethods.waitFor(3);
+            adminGiftCardPage.select.click();
+            adminGiftCardPage.view.click();
+            ReusableMethods.waitForVisibility(adminGiftCardPage.statusInactive,10);
+            Assert.assertEquals(adminGiftCardPage.statusInactive.getText(),"Inactive");
+        }
+
+        if (adminGiftCardPage.statusInactive.isDisplayed()){
+            Driver.getDriver().navigate().back();
+            adminGiftCardPage.statusChange.click();
+            ReusableMethods.waitFor(3);
+            adminGiftCardPage.select.click();
+            adminGiftCardPage.view.click();
+            Assert.assertTrue(adminGiftCardPage.statusActive.isDisplayed());}
+
+
+
+
+
     }
 }
