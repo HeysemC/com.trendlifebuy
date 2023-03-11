@@ -41,6 +41,13 @@ public class HomePage {
     @FindBy(css = "a.d-lg-inline-flex")
     public WebElement newUserZoneLink;
 
+    @FindBy(css = "a.Categories_togler")
+    public WebElement allCategoriesDropDownMenu;
+
+    // Computer & Accessories, Electronics Devices, Watches & Accessories, Fashions, Toys,Kids&Babies, Bag&Shoes, Lifestyle&Home, TV & Home Appliances, Auto Mobiles & bikes
+    @FindBy(css = "ul.dropdown_menu>li>a")
+    public List<WebElement> allCategoriesDropdownItems;
+
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
