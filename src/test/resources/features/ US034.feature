@@ -31,5 +31,13 @@ Feature:  US034 - Bir yönetici olarak siteye yeni bir ürün eklemek icin Add N
     Given Navigatee to "adminUrl"
     And Entere "validUsername" and "validPassword" and click sing in button
     Then Click Add New Product button
+    Then Name,Product SKU,Model Number,Category,Brand, Unit,Barcod Type,Minimum Order QTY,Max Order QTY,Tags Text Box'larinin görünür oldugu dogrulanmali
+    Then Closee the page
 
+  Scenario: [TC005] - Product Information bölümündeki  Category Add New linkine tıklandığında Create Category penceresinin açıldığı doğrulanmalı
 
+    Given Navigatee to "adminUrl"
+    And Entere "validUsername" and "validPassword" and click sing in button
+    Then Click Add New Product button
+    Then Category Add New linkine tıklandığında Create Category penceresinin açıldığı doğrulanmalı
+    Then Closee the page
