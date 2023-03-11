@@ -12,10 +12,8 @@ public class AdminProductsPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    /*
-     1- Products menusunden Product List sayfasina erisilebilir oldugu dogrulanmali.*/
 
-   // ******** Harun Yucel Locaters ********
+   //1- ******** Harun Yucel Locaters ********
     @FindBy(xpath = "//input[@id='text']")
     public WebElement admin066Mail;
     @FindBy(xpath = "//input[@id='password']")
@@ -27,13 +25,7 @@ public class AdminProductsPage {
     @FindBy(xpath = "(//a[text()='Product List'])[1]")
     public WebElement productList;
 
-    // ************ Harun Yucel locaters
-
-   /*
-    2- Product List sayfasinda Product List, Alert List, Out Of Stock List,
-    Disabled Product List, Product By SKU List linklerinin görünür ve ilgili sayfaya gittigi dogrulanir
-    */
-
+    //2- ************ Harun Yucel locaters
     @FindBy(id = "product_alert_id")
     public WebElement alertList;
     @FindBy(id = "product_stock_out_id")
@@ -43,10 +35,7 @@ public class AdminProductsPage {
     @FindBy(id = "product_sku_id")
     public WebElement productBySKUList;
 
- //3-Product List'te ürünler SL, Name, Product Type, Brand, Image,
- // Stock, Status, Action basliklari altinda listelendigi dogrulanir
-
- //***********Harun Yucel locaters******************
+ //3-***********Harun Yucel locaters******************
 
  @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[1]")
  public WebElement sl;
@@ -73,20 +62,12 @@ public class AdminProductsPage {
  @FindBy(xpath = "(//th[@aria-controls='mainProductTable'])[8]")
  public WebElement Action;
 
-
- /*
-4-Quick Search TextBox'i ile Product List icerisinde arama yapilabildigi dogrulanmali
- */
- //***********Harun Yucel locaters******************
+ //4-***********Harun Yucel locaters******************
 
  @FindBy(xpath = "(//input[@placeholder='Quick Search'])[1]")
  public WebElement QuickSearchTextBox;
 
- /*
- 5-Product List icerisinde Status sütunundan ürün statusu degistirilebildigi dogrulanmali
-  */
-
- //***********Harun Yucel locaters******************
+ //5-***********Harun Yucel locaters******************
  @FindBy(xpath = "(//button[@class='dt-button buttons-collection buttons-colvis'])[1]")
  public WebElement productListfilter;
 
@@ -103,11 +84,7 @@ public class AdminProductsPage {
  @FindBy(xpath = "//span[text()='SL']")
  public WebElement slFilter;
 
- /*
- 6-Product List icerisinde Action sütununda select sekmesine tiklaninca
- View linkinin görünür oldugu ve ürünü görüntüledigi dogrulanmali
-  */
-
+ //6-***********Harun Yucel locaters******************
  @FindBy(xpath = "(//button[@id='dropdownMenu2'])[2]")
  public WebElement actionSelect;
 
@@ -119,37 +96,24 @@ public class AdminProductsPage {
  @FindBy(xpath = "//div[@class='products_view_left text-center mb-35']")
  public WebElement productdisplay;
 
- /*
-7-Product List icerisinde Action sütunundaki select sekmesinde Edit linkinin görünür oldugu
-ve tiklaninca Edit Product sayfasina yönlendirdigi dogrulanmali
- */
-
+ //7-***********Harun Yucel locaters******************
  @FindBy(xpath = "(//a[@class='dropdown-item edit_brand'])[3]")
  public WebElement actionEdit;
 
  @FindBy(xpath = "(//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[1]")
  public WebElement Editproduct;
 
- /*
-8-Edit Product sayfasinda ürününün mevcut bilgilerinin bulundugu dogrulanmali
- */
-
+ //8-***********Harun Yucel locaters******************
  @FindBy(id = "GenaralInfo")
  public WebElement GeneralInformationTable;
 
-/*
-9-Product Information bölümünde Type seceneginin
-degistirilemedigi ve buna iliskin mesajin görünür oldugu dogrulanmali
- */
+ //9-***********Harun Yucel locaters******************
 @FindBy(xpath = "(//label[@data-id='color_option'])[1]")
 public WebElement variantButton;
  @FindBy(xpath = "//label[text()=' (Change Not Possible for Use) ']")
  public WebElement typeText;
 
- /*
- 10-General Information, Related Product, Up Sale, Cross Sale sayfalarindaki editlenmek istenen bilgiler
- editlendikten sonra Update butonu ile editlenen bilgilerin kaydedildigi dogrulanir.
-  */
+ //10-***********Harun Yucel locaters******************
  @FindBy(xpath = "//a[text()='General Information']")
  public WebElement GeneralInformation;
 

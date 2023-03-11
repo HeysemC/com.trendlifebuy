@@ -27,7 +27,7 @@ public class AdminGiftCardPage {
 
     //admin dashboard >giftCard >giftCardList >SKU
     @FindBy(xpath = "//*[text()='SKU']")
-    public WebElement SKU;
+    public WebElement sku;
 
     //admin dashboard >giftCard >giftCardList >Thumbnail Image
     @FindBy(xpath = "//*[text()='Thumbnail Image']")
@@ -64,4 +64,20 @@ public class AdminGiftCardPage {
     //admin dashboard >giftCard >giftCardList >delete
     @FindBy(xpath = "(//a[text()='Delete'])[1]")
     public WebElement delete;
+
+    @FindBy(xpath = "//*[text()='Active']")
+    public WebElement statusActive;
+
+    @FindBy(xpath ="//span[text()='Inactive']")
+    public WebElement statusInactive;
+
+    @FindBy(xpath = "(//div[@class='slider round'])[1]")
+    public WebElement statusChange;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[2]")
+    public WebElement tableFirstName;
+
+    @FindBy(xpath = "//tbody/tr[2]/td[2]")
+    public WebElement viewTableName;
+
 }
