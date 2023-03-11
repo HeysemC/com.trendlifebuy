@@ -1,45 +1,43 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.Given;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.AdminProductsPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class US035 {
 
     AdminProductsPage adminProductsPage = new AdminProductsPage();
+    Actions actions = new Actions(Driver.getDriver());
     @Given("Login to Trendlifeby page as admin")
     public void login_to_trendlifeby_page_as_admin() {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
         adminProductsPage.admin066Mail.sendKeys(ConfigReader.getProperty("admin066Mail"));
         adminProductsPage.admin066pasword.sendKeys(ConfigReader.getProperty("admin066pasword"));
         adminProductsPage.signInButton.click();
-    // Trendlifeby sayfasına admin olarak giris yapılır
+
     }
     @Given("Click on the Products button")
     public void click_on_the_products_button() {
         adminProductsPage.producst.click();
 
-        //  Products butonuna tıklanır
+
     }
     @Given("Click the ProductsList button")
     public void click_the_products_list_button() {
         adminProductsPage.productList.click();
 
-        // ProductsList butonu tıklanır
+
     }
    @Given("Verifies that the ProductsList page is visible")
     public void verifies_that_the_products_list_page_is_visible() {
        assertTrue(adminProductsPage.productList.isDisplayed());
-        // ProductsList sayfası gorunur oldugu dogrulanır
+
 
     }
 
@@ -47,7 +45,7 @@ public class US035 {
     public void closes_the_page() {
         Driver.closeDriver();
 
-        // sayfayı kapatır
+
     }
 
  @Given("Verifies that it goes to the Prouducts List page")
@@ -59,7 +57,6 @@ public class US035 {
       String actualTitle= Driver.getDriver().getTitle();
       assertEquals(expectedTitle,actualTitle);
 
-     // Prouducts List sayfasına gittigi dogrulanır
     }
  @Given("Verified visibility of ProductList, AlertList, OutOfStockList, DisabledProductList, ProductBySKUList links")
  public void verified_visibility_of_product_list_alert_list_out_of_stock_list_disabled_product_list_product_by_sku_list_links() {
@@ -70,19 +67,15 @@ public class US035 {
    assertTrue(adminProductsPage.disabledProductList.isDisplayed());
    assertTrue(adminProductsPage.productBySKUList.isDisplayed());
 
-   // ProductList, AlertList, OutOfStockList, DisabledProductList,
-  // ProductBySKUList linklerinin görünürlügü dogrulandı
     }
     @Given("Go to Prouducts List page")
     public void go_to_prouducts_list_page() {
-        //Prouducts list sayfasına gidilir
+
         adminProductsPage.producst.click();
         adminProductsPage.productList.click();
     }
     @Given("SL, Name, Product Type, Brand, Image, It appears to be listed under the headings Stock, Status, Action")
     public void sl_name_product_type_brand_ımage_ıt_appears_to_be_listed_under_the_headings_stock_status_action() {
-        // SL, Name, Product Type, Brand, Image,
-        // Stock, Status, Action basliklari altinda listelendigi gorulur
 
        assertTrue(adminProductsPage.sl.isDisplayed());
        assertTrue(adminProductsPage.Name.isDisplayed());
@@ -105,25 +98,97 @@ public class US035 {
         ReusableMethods.waitFor(2);
        Driver.closeDriver();
 
-        // Quick Search TextBox butonunun aktif oldugu dogrulandı
     }
 
     @Given("Product status can be changed from the Status column in the Product List verified.")
     public void product_status_can_be_changed_from_the_status_column_in_the_product_list_verified() {
-
-    //adminProductsPage.productListfilter.click();
-    //adminProductsPage.slFilter.click();
-   // Actions actions = new Actions(Driver.getDriver());
-    //actions.moveToElement(adminProductsPage.statusStun).perform();
-        Driver.getDriver().findElement(By.xpath("(//td[@class='sorting_1'])[1]")).click();
-    ReusableMethods.waitFor(2);
-    //adminProductsPage.slFilter.click();
+    ReusableMethods.waitFor(3);
+    adminProductsPage.firstbutton.click();
+    assertTrue(adminProductsPage.statusStun.isEnabled());
     adminProductsPage.statusStun.click();
+    Driver.closeDriver();
 
+    }
+    @Given("Clicked on the select tab in the Action column, verified that the View link is visible and displays the product")
+    public void clicked_on_the_select_tab_in_the_action_column_verified_that_the_view_link_is_visible_and_displays_the_product() {
+        ReusableMethods.waitFor(3);
+        adminProductsPage.firstbutton.click();
+        adminProductsPage.actionSelect.click();
+        assertTrue(adminProductsPage.actionVıew.isDisplayed());
+        adminProductsPage.actionVıew.click();
+        assertTrue(adminProductsPage.productdisplay.isDisplayed());
+        Driver.closeDriver();
 
-   // Product List icerisinde Status sütunundan ürün statusu degistirilebildigi dogrulandı
     }
 
+    @Given("Confirmed that Edit link is visible in Action select tab and when clicked it redirects to Edit Product page")
+    public void confirmed_that_edit_link_is_visible_in_action_select_tab_and_when_clicked_it_redirects_to_edit_product_page() {
+        ReusableMethods.waitFor(3);
+        adminProductsPage.firstbutton.click();
+        adminProductsPage.actionSelect.click();
+        assertTrue(adminProductsPage.actionEdit.isDisplayed());
+        adminProductsPage.actionEdit.click();
+       assertTrue(adminProductsPage.Editproduct.isDisplayed());
+       Driver.closeDriver();
+
+    }
+    @Given("Verified that the product's current information is available on the Edit Product page")
+    public void verified_that_the_product_s_current_information_is_available_on_the_edit_product_page() {
+        ReusableMethods.waitFor(3);
+        adminProductsPage.firstbutton.click();
+        adminProductsPage.actionSelect.click();
+        adminProductsPage.actionEdit.click();
+        ReusableMethods.waitFor(2);
+        assertTrue(adminProductsPage.GeneralInformationTable.isDisplayed());
+        Driver.closeDriver();
+
+    }
+
+    @Given("In the Product Information section, select the Type option. Verified that it has not been changed and the corresponding message is visible")
+    public void ın_the_product_ınformation_section_select_the_type_option_verified_that_it_has_not_been_changed_and_the_corresponding_message_is_visible() {
+
+        ReusableMethods.waitFor(3);
+        adminProductsPage.firstbutton.click();
+        adminProductsPage.actionSelect.click();
+        adminProductsPage.actionEdit.click();
+
+       assertTrue(adminProductsPage.typeText.isDisplayed());
+        System.out.println(adminProductsPage.typeText.getText());
+        ReusableMethods.waitFor(2);
+        adminProductsPage.variantButton.click();
+       assertFalse(adminProductsPage.variantButton.isSelected());
+       Driver.closeDriver();
+
+    }
+
+    @Given("Information to be edited on the General Information, Related Product, Up-Selling, Cross-Selling pages After editing, it is verified that the saved information is saved with the Update button.")
+    public void ınformation_to_be_edited_on_the_general_ınformation_related_product_up_selling_cross_selling_pages_after_editing_it_is_verified_that_the_saved_information_is_saved_with_the_update_button() {
+    ReusableMethods.waitFor(3);
+    adminProductsPage.firstbutton.click();
+    adminProductsPage.actionSelect.click();
+    adminProductsPage.actionEdit.click();
+
+    adminProductsPage.GeneralInformation.click();
+    assertTrue(adminProductsPage.GeneralInformationName.isEnabled());
+    actions.keyDown(Keys.END);
+    actions.keyUp(Keys.END);
+    assertTrue(adminProductsPage.UpdateButton.isEnabled());
+
+        actions.keyDown(Keys.HOME);
+        actions.keyUp(Keys.HOME);
+    adminProductsPage.RelatedProduct.click();
+    assertTrue(adminProductsPage.RelatedProductName.isEnabled());
+    assertTrue(adminProductsPage.UpdateButton.isEnabled());
+
+    adminProductsPage.UpSale.click();
+    assertTrue(adminProductsPage.UpSaleName.isEnabled());
+    assertTrue(adminProductsPage.UpdateButton.isEnabled());
+
+    adminProductsPage.CrossSale.click();
+    assertTrue(adminProductsPage.crosssaleName.isEnabled());
+    assertTrue(adminProductsPage.UpdateButton.isEnabled());
+
+    }
 
 
 }

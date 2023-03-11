@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
+import java.util.List;
+
 public class AdminProductsPage {
     public AdminProductsPage() {
         PageFactory.initElements(Driver.getDriver(), this);
@@ -88,10 +90,92 @@ public class AdminProductsPage {
  @FindBy(xpath = "(//button[@class='dt-button buttons-collection buttons-colvis'])[1]")
  public WebElement productListfilter;
 
- @FindBy(xpath = "(//label[@class='switch_toggle'])[1]")
+ @FindBy(xpath = "(//td[@class='sorting_1'])[1]")
+ public WebElement firstbutton;
+
+ @FindBy(xpath = "(//label[@class='switch_toggle'])[2]")
  public WebElement statusStun;
+
+ @FindBy(xpath = "//div[@class='Updated successfully!']")
+ public WebElement UpdatedSuccessfully;
+
 
  @FindBy(xpath = "//span[text()='SL']")
  public WebElement slFilter;
+
+ /*
+ 6-Product List icerisinde Action sütununda select sekmesine tiklaninca
+ View linkinin görünür oldugu ve ürünü görüntüledigi dogrulanmali
+  */
+
+ @FindBy(xpath = "(//button[@id='dropdownMenu2'])[2]")
+ public WebElement actionSelect;
+
+
+ @FindBy(xpath = "(//a[text()='View'])[2]")
+ public WebElement actionVıew;
+
+
+ @FindBy(xpath = "//div[@class='products_view_left text-center mb-35']")
+ public WebElement productdisplay;
+
+ /*
+7-Product List icerisinde Action sütunundaki select sekmesinde Edit linkinin görünür oldugu
+ve tiklaninca Edit Product sayfasina yönlendirdigi dogrulanmali
+ */
+
+ @FindBy(xpath = "(//a[@class='dropdown-item edit_brand'])[3]")
+ public WebElement actionEdit;
+
+ @FindBy(xpath = "(//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[1]")
+ public WebElement Editproduct;
+
+ /*
+8-Edit Product sayfasinda ürününün mevcut bilgilerinin bulundugu dogrulanmali
+ */
+
+ @FindBy(id = "GenaralInfo")
+ public WebElement GeneralInformationTable;
+
+/*
+9-Product Information bölümünde Type seceneginin
+degistirilemedigi ve buna iliskin mesajin görünür oldugu dogrulanmali
+ */
+@FindBy(xpath = "(//label[@data-id='color_option'])[1]")
+public WebElement variantButton;
+ @FindBy(xpath = "//label[text()=' (Change Not Possible for Use) ']")
+ public WebElement typeText;
+
+ /*
+ 10-General Information, Related Product, Up Sale, Cross Sale sayfalarindaki editlenmek istenen bilgiler
+ editlendikten sonra Update butonu ile editlenen bilgilerin kaydedildigi dogrulanir.
+  */
+ @FindBy(xpath = "//a[text()='General Information']")
+ public WebElement GeneralInformation;
+
+ @FindBy(id = "product_name")
+ public WebElement GeneralInformationName;
+ @FindBy(xpath = "//a[text()='Related Product']")
+ public WebElement RelatedProduct;
+
+ @FindBy(xpath = "(//label[@class='primary_checkbox d-flex'])[1]")
+ public WebElement RelatedProductButton;
+
+ @FindBy(id = "relatedProductAll")
+ public WebElement RelatedProductName;
+
+ @FindBy(xpath = "//button[@class='primary_btn_2 mt-5 text-center saveBtn']")
+ public WebElement UpdateButton;
+ @FindBy(id = "3")
+ public WebElement UpSale;
+ @FindBy(id = "upSaleAll")
+ public WebElement UpSaleName;
+ @FindBy(xpath = "//a[text()='Cross sale']")
+ public WebElement CrossSale;
+ @FindBy(id = "crossSaleAll")
+ public WebElement crosssaleName;
+ @FindBy(xpath = "//button[@class='primary_btn_2 mt-5 text-center saveBtn']")
+ public WebElement Updatecrosssale;
+
 
 }
