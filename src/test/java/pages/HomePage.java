@@ -41,6 +41,9 @@ public class HomePage {
     @FindBy(css = "a.d-lg-inline-flex")
     public WebElement newUserZoneLink;
 
+    @FindBy(xpath = "//*[text()='Casual Sun Glass']")
+    public WebElement product;
+
     public HomePage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
