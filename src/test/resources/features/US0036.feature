@@ -31,15 +31,15 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     Then  Verify that Name,SKU,Thumbnail Image,Selling Price,Number of Sale and Status information is displayed
     Then  Close the page
 
-  Scenario:[TC04] It should be verified that the gift card selected under the
-           Status Title in the Gift Card List can be set as active or passive.
+  Scenario:[TC004] When the View link is clicked, it should be verified that its Status is the same as the gift card
+  status selected in the Gift Card List.
 
     Given Navigate to "adminUrl"
     Then  Enter "validUsername" and "validPassword" and click sing in button
     Then  Click giftCard button
     Then  Click giftCardList
-    And   Verify that when we click this button, the status of this button has changed
-
+    And   Click status button
+    And   Verify that the status of the gift card can be changed to active or inactive
 
 
   Scenario: [TC005]Verify that View,Edit and Delete links are visible in the
@@ -53,7 +53,7 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     And   Verify view,edit and delete links are visible
     And   Close the page
 
-  @US036
+
   Scenario:[TC006] On the page that opens when the View link is clicked on the Select tab under the Actions heading,
            it should be verified that the name in the Name field and the gift card name selected in the
            Gift Card List are the same.
@@ -63,3 +63,66 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     Then  Click giftCard button
     Then  Click giftCardList
     And   Verify that the name in the Name field and the gift card name selected in the Gift Card List are the same
+
+  Scenario:[TC007] It should be verified that the gift card selected under the
+  Status Title in the Gift Card List can be set as active or passive.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    And   Verify that when we click this button, the status of this button has changed
+
+  Scenario:[TC008] It should be verified that it redirects the gift card to the print page with the Print button.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    And   Click print button
+    And   Verify that it redirects the gift card to the print page
+    And   Close the all pages
+
+
+  Scenario:[TC009] When the Edit link is clicked on the Select tab under the Actions heading,
+           it should be verified that it redirects to the Edit Gift Card page.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    Then  Click select button
+    Then  Click edit button
+    And   Verify that it redirects to the Edit Gift Card page
+  @US036
+  Scenario Outline:[TC010]On the Edit Gift Card page, it should be verified that the relevant gift card has Name, SKU, Thumbnail Image,
+           Selling Price, Shipping Methods, Galary Image,Discount, Discount Type, Status, Discount Period and Tag information
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    Then  Click select button
+    Then  Click edit button
+    And   Verify that required "<informations>" on the Edit Gift Card page
+    And   Close the page
+    Examples:
+      | informations   |
+      |Name            |
+      |SKU             |
+      |Thumbnail Image |
+      |Selling Price   |
+      |Shipping Methods|
+      |Galary Image    |
+      |Discount        |
+      |Discount Type   |
+      |Status          |
+      |Discount Period |
+      |Tag             |
+      |Description     |
+
+
+
+
+
+
