@@ -20,29 +20,32 @@ public class AdminLoginPage {
     @FindBy(xpath = "//button[text()='Sign In']")
     public WebElement signInButton;
 
-    // admin ikonu
+    // admin ikonu(tuncay)
     @FindBy(xpath = "//*[@id='profile_pic']")
     public WebElement profilikonu;
 
-    // admin ikonu/admin ismi
+    // admin ikonu/admin ismi(tuncay)
     @FindBy(xpath = "//*[text()='Admin019']")
     public WebElement adminName;
-    //zil butonu
+    //zil butonu(tuncay)
     @FindBy(xpath = "//*[@class='fa fa-bell']")
     public WebElement zilButtonu;
 
-    //zil buton/setting
+    //zil buton/setting(tuncay)
     @FindBy(xpath = "//*[text()='Setting']")
     public WebElement settingButton;
 
-    // zil button/notificatin yazısı
+    // zil button/notificatin yazısı(tuncay)
     @FindBy(xpath = "//*[text()='Notifications']")
     public  WebElement notificationText;
 
-    //zil button/Setting yazısı
+    //zil button/Setting yazısı(tuncay)
     @FindBy(xpath = "//*[text()='Setting']")
     public WebElement SettingButton;
 
-
-
+    //zil button/Setting yazısı/type sütunu aktif-pasif(tuncay)
+    @FindBy(xpath = "(//span[@class='checkmark'])[1]")
+    public WebElement checkmark;
+    @FindBy(xpath = "//tbody/tr/td[2]//span")
+    public WebElement tbody;
 }

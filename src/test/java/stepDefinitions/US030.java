@@ -15,7 +15,7 @@ public class US030 {
         adminLoginPage=new AdminLoginPage();
         ReusableMethods.waitFor(2);
         adminLoginPage.zilButtonu.click();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
     }
 
     @Then("Verify that the Notifications text is visible")
@@ -37,7 +37,12 @@ public class US030 {
         System.out.println(actualStr);
         String expectedStr="User Notification";
         Assert.assertTrue(actualStr.contains((expectedStr)));
-
-
+    }
+    @Then("it should be confirmed that the information message type can be changed on the page that opens.")
+    public void itShouldBeConfirmedThatTheInformationMessageTypeCanBeChangedOnThePageThatOpens() {
+        adminLoginPage.checkmark.click();
+        String actualtext=adminLoginPage.checkmark.getText();
+        System.out.println(actualtext);
+        System.out.println(adminLoginPage.tbody.getText());
     }
 }

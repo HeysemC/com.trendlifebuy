@@ -37,7 +37,7 @@ public class US031 {
     @Then("Click profilikon button")
     public void clickProfilikonButton() {
         adminLoginPage=new AdminLoginPage();
-        ReusableMethods.waitFor(2);
+        //ReusableMethods.waitFor(2);
         adminLoginPage.profilikonu.click();
         ReusableMethods.waitFor(2);
     }
