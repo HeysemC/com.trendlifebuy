@@ -240,7 +240,7 @@ public class US033 {
         adminDashboardPage=new AdminDashboardPage();
 
         adminDashboardPage.RoleSelectButton.click();
-        ReusableMethods.waitFor(3);
+        ReusableMethods.waitFor(4);
     }
 
     @And("Click the Edit button")
@@ -255,5 +255,82 @@ public class US033 {
         adminDashboardPage=new AdminDashboardPage();
 
         adminDashboardPage.UpdateCustomerPage.isDisplayed();
+    }
+    /*
+    [TC013]
+     */
+    @And("Verify the Basic Info can be seen")
+    public void verifyTheBasicInfoCanBeSeen() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.BasicInfo.isDisplayed();
+    }
+
+    @And("Verify that the update button is working")
+    public void verifyThatTheUpdateButtonIsWorking() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.EditUpdateButton.click();
+        Assert.assertTrue(adminDashboardPage.UpdateSuccessMessage.isDisplayed());
+    }
+
+    /*
+    [TC014]
+     */
+    @And("Click Delete button")
+    public void clickDeleteButton() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.DeleteButton.click();
+
+      //  Assert.assertTrue(adminDashboardPage.DeletePage.isDisplayed());
+    }
+
+    @And("Verify that the delete window is visible and working")
+    public void verifyThatTheDeleteWindowIsVisibleAndWorking() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.DeleteLink.click();
+
+        Assert.assertTrue(adminDashboardPage.DeleteMessage.isDisplayed());
+    }
+
+    /*
+    [TC015]
+     */
+
+    @And("Click Inactive Customer button")
+    public void clickInactiveCustomerButton() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.InaktiveCustomerButton.click();
+        ReusableMethods.waitFor(3);
+
+    }
+
+    @And("Verify that the Inactive Customer List visible")
+    public void verifyThatTheInactiveCustomerListVisible() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        Assert.assertTrue(adminDashboardPage.InaktiveCutsomerPage.isDisplayed());
+    }
+
+    /*
+    [TC019]
+     */
+
+    @And("Click Create Customer button")
+    public void clickCreateCustomerButton() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        adminDashboardPage.CreateCustomerButton.click();
+
+    }
+
+    @And("Verify that the Customer Page is visible")
+    public void verifyThatTheCustomerPageIsVisible() {
+        adminDashboardPage=new AdminDashboardPage();
+
+        Assert.assertTrue(adminDashboardPage.AddNewCustomerPage.isDisplayed());
     }
 }
