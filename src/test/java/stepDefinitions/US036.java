@@ -4,12 +4,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.asserts.SoftAssert;
 import pages.AdminGiftCardPage;
 import pages.AdminLoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 
 public class US036 {
@@ -144,4 +152,193 @@ public class US036 {
 
 
     }
+
+    @And("Click status button")
+    public void clickStatusButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.statusChange.click();
+
+
+
+    }
+
+    @And("Verify that the status of the gift card can be changed to active or inactive")
+    public void verifyThatTheStatusOfTheGiftCardCanBeChangedToActiveOrInactive() {
+        adminGiftCardPage = new AdminGiftCardPage();
+        SoftAssert softAssert = new SoftAssert();
+
+        boolean isChecked = adminGiftCardPage.statusCheckbox.isSelected();
+
+        if (!isChecked) {
+            adminGiftCardPage.statusChange.click();
+            isChecked = adminGiftCardPage.statusCheckbox.isSelected();
+            softAssert.assertTrue(isChecked, "Checkbox seçilemedi!");
+        } else {
+            adminGiftCardPage.statusChange.click();
+            isChecked = adminGiftCardPage.statusCheckbox.isSelected();
+            softAssert.assertFalse(isChecked, "Checkbox pasif hale getirilemedi!");
+        }
+
+        softAssert.assertAll();
+    }
+
+    @And("Click print button")
+    public void clickPrintButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.printButton.click();
+    }
+
+    @And("Verify that it redirects the gift card to the print page")
+    public void verifyThatItRedirectsTheGiftCardToThePrintPage() {
+
+        //ReusableMethods.switchToWindow("Trendlifebuy | Online Shopping | Admin Giftcard");
+        //Assert.assertEquals(Driver.getDriver().getTitle(),"Trendlifebuy | Online Shopping | Admin Giftcard");
+        // Geçerli penceredeki tüm pencere tanımlayıcılarını alın
+        Set<String> windowHandles = Driver.getDriver().getWindowHandles();
+
+        // Set'teki ikinci tanımlayıcı (yeni sekme) üzerinde işlem yapmak için ana pencereye (ilk tanımlayıcı) geçiş yapın
+        Iterator<String> it = windowHandles.iterator();
+        String mainWindow = it.next();
+        String printPage = it.next();
+        Driver.getDriver().switchTo().window(printPage);
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("Close the all pages")
+    public void closeTheAllPages() {
+        Driver.quitDriver();
+    }
+
+    @Then("Click edit button")
+    public void clickEditButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.edit.click();
+    }
+
+    @And("Verify that it redirects to the Edit Gift Card page")
+    public void verifyThatItRedirectsToTheEditGiftCardPage() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        Assert.assertTrue(adminGiftCardPage.editGiftCardText.isDisplayed());
+
+
+    }
+
+    @And("Verify that required {string} on the Edit Gift Card page")
+    public void verifyThatRequiredOnTheEditGiftCardPage(String arg0) {
+        adminGiftCardPage=new AdminGiftCardPage();
+        SoftAssert softAssert=new SoftAssert();
+
+        if(arg0.equals("Name")){softAssert.assertTrue(adminGiftCardPage.editName.isDisplayed());}
+        if (arg0.equals("SKU")) {softAssert.assertTrue(adminGiftCardPage.editSku.isDisplayed());}
+        if (arg0.equals("Thumbnail Image")) {softAssert.assertTrue(adminGiftCardPage.editThumbnailImage.isDisplayed());}
+        if (arg0.equals("Selling Price")) {softAssert.assertTrue(adminGiftCardPage.editSellingPrice.isDisplayed());}
+        if (arg0.equals("Shipping Methods")) {softAssert.assertTrue(adminGiftCardPage.editShippingMethods.isDisplayed());}
+        if (arg0.equals("Galary Image")) {softAssert.assertTrue(adminGiftCardPage.editGalaryImage.isDisplayed());}
+        if (arg0.equals("Discount")) {softAssert.assertTrue(adminGiftCardPage.editDiscount.isDisplayed());}
+        if (arg0.equals("Discount Type")) {softAssert.assertTrue(adminGiftCardPage.editDiscountType.isDisplayed());}
+        if (arg0.equals("Status")) {softAssert.assertTrue(adminGiftCardPage.editStatus.isDisplayed());}
+        if (arg0.equals("Discount Period")) {softAssert.assertTrue(adminGiftCardPage.editDiscountPeriod.isDisplayed());}
+        if (arg0.equals("Tag")) {softAssert.assertTrue(adminGiftCardPage.editTags.isDisplayed());}
+        if (arg0.equals("Description")) {softAssert.assertTrue(adminGiftCardPage.editDescription.isDisplayed());}
+        softAssert.assertAll();
+
+    }
+    @Then("Edit name {string} sellingPrice {string} and sku {string} information")
+    public void editNameSellingPriceAndSkuInformation(String arg1, String arg2, String arg3) {
+
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.editNameInput.click();
+        adminGiftCardPage.editNameInput.clear();
+        adminGiftCardPage.editNameInput.sendKeys(arg1);
+
+        adminGiftCardPage.editSellingPriceInput.click();
+        adminGiftCardPage.editSellingPriceInput.clear();
+        adminGiftCardPage.editSellingPriceInput.sendKeys(arg2);
+
+        adminGiftCardPage.editSkuInput.click();
+        adminGiftCardPage.editSkuInput.clear();
+        adminGiftCardPage.editSkuInput.sendKeys(arg3);
+    }
+
+
+    @And("Veriyf that it can be updated by clicking the Update button")
+    public void veriyfThatItCanBeUpdatedByClickingTheUpdateButton() {
+
+        adminGiftCardPage=new AdminGiftCardPage();
+        Actions actions=new Actions(Driver.getDriver());
+        actions.sendKeys(Keys.END).perform();
+
+        adminGiftCardPage.editUpdateButton.click();
+        ReusableMethods.waitFor(3);
+        String expectedResult="Updated successfully!";
+        String actualResult=adminGiftCardPage.messageBox.getText();
+        System.out.println(actualResult);
+        Assert.assertEquals(actualResult,expectedResult);
+
+    }
+
+
+    @Then("Click delete button and click delete data button")
+    public void clickDeleteButtonAndClickDeleteDataButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.delete.click();
+        adminGiftCardPage.editDataDeleteBtn.click();
+
+    }
+
+    @Then("Verify that the relevant gift card can be deleted from the window")
+    public void verifyThatTheRelevantGiftCardCanBeDeletedFromTheWindow() {
+        adminGiftCardPage=new AdminGiftCardPage();
+        ReusableMethods.waitFor(3);
+        String expectedResult="Deleted successfully!";
+        String actualResult=adminGiftCardPage.messageBox.getText();
+        System.out.println(actualResult);
+        Assert.assertEquals(actualResult,expectedResult);
+
+    }
+
+
+    @Then("Click quick search and enter an {string}")
+    public void clickQuickSearchAndEnterAn(String arg0) {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.quickSearch.sendKeys(arg0);
+        ReusableMethods.waitFor(3);
+    }
+
+
+    @And("Verify that is displayed this {string} in Gift Card List")
+    public void verifyThatIsDisplayedThisInGiftCardList(String arg0) {
+        WebElement table = Driver.getDriver().findElement(By.xpath("//table"));
+        // Satırları bul
+        List<WebElement> rows = table.findElements(By.tagName("tr"));
+        // Her bir hücreyi kontrol et
+        boolean found = false;
+        for (WebElement row : rows) {
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+            for (WebElement cell : cells) {
+                if (cell.getText().contains(arg0)) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found) {
+                break;
+            }
+        }
+
+
+        // Assert kullanarak kontrol et
+        Assert.assertTrue(arg0+"bulunamadı", found);
+
+        // WebDriver'ı kapat
+        Driver.closeDriver();
+    }
 }
+

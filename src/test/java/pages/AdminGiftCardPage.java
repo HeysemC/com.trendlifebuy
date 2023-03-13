@@ -1,5 +1,6 @@
 package pages;
 
+import io.cucumber.java.zh_cn.假如;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -79,5 +80,71 @@ public class AdminGiftCardPage {
 
     @FindBy(xpath = "//tbody/tr[2]/td[2]")
     public WebElement viewTableName;
+
+    @FindBy (xpath = "//div[@class='toast-message']")
+    public WebElement messageBox;
+
+    @FindBy(xpath = "//i[@class='fa fa-print']")
+    public WebElement printButton;
+
+    @FindBy(xpath = "(//h3)[1]")
+    public WebElement editGiftCardText;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[1]")
+    public WebElement editName;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[2]")
+    public WebElement editSku;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[3]")
+    public WebElement editSellingPrice;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[4]")
+    public WebElement editShippingMethods;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[5]")
+    public WebElement editDiscount;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[6]")
+    public WebElement editDiscountType;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[7]")
+    public WebElement editDiscountPeriod;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[8]")
+    public WebElement editThumbnailImage;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[9]")
+    public WebElement editGalaryImage;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[10]")
+    public WebElement editStatus;
+
+    @FindBy(xpath = "(//label[@class='primary_input_label'])[11]")
+    public WebElement editDescription;
+
+    @FindBy(xpath = "//*[text()='Tags (Comma Separated)']")
+    public WebElement editTags;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public WebElement statusCheckbox;
+
+    @FindBy(id = "submit_btn")
+    public WebElement editUpdateButton;
+
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement editNameInput;
+
+    @FindBy(xpath = "//input[@id='sku']")
+    public WebElement editSkuInput;
+
+    @FindBy(xpath = "//input[@id='selling_price']")
+    public WebElement editSellingPriceInput;
+
+    @FindBy(xpath = "//input[@id='dataDeleteBtn']")
+    public WebElement editDataDeleteBtn;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement quickSearch;
 
 }
