@@ -37,6 +37,8 @@ public class AdminDashboardPage {
     @FindBy(xpath = "(//td[@class='sorting_1'])[1]")
     public WebElement RoleButton;
 
+    //(//td[@class='sorting_1'])[2]
+    //(//td[@class='sorting_1'])[1]
     @FindBy(xpath = "(//button[@id='dropdownMenu2'])[2]")
     public WebElement RoleSelectButton;
 
@@ -90,11 +92,45 @@ public class AdminDashboardPage {
     @FindBy(xpath = "//td[text()='michel11@gmail.com']")
     public WebElement MichelEmail;
 
-    @FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
+    @FindBy(xpath = "(//a[text()='Edit'])[2]")
     public WebElement EditButton;
 
     //(//a[@class='dropdown-item'])[2]
-    //(//a[text()='Edit'])[1]
+    //(//a[text()='Edit'])[2]
+    //(//a[@href='https://qa.trendlifebuy.com/admin/customer/1010/edit'])[2]
     @FindBy(xpath = "//h3[text()='Update Customer']")
     public WebElement UpdateCustomerPage;
+
+    @FindBy(xpath = "//h3[text()='Basic Info']")
+    public WebElement BasicInfo;
+
+    @FindBy(xpath = "//button[@id='save_button_parent']")
+    public WebElement EditUpdateButton;
+
+    @FindBy(xpath = "//div[text()='Updated successfully!']")
+    public WebElement UpdateSuccessMessage;
+
+    @FindBy(xpath = "(//a[text()='Delete'])[2]")
+    public WebElement DeleteButton;
+
+    @FindBy(xpath = "//a[@id='delete_link']")
+    public WebElement DeleteLink;
+
+    @FindBy(xpath = "//h4[text()='Delete  ']")
+    public WebElement DeletePage;
+
+    @FindBy(xpath = "//div[text()='Deleted successfully!']")
+    public WebElement DeleteMessage;
+
+    @FindBy(xpath = "//a[text()='Inactive customer']")
+    public WebElement InaktiveCustomerButton;
+
+    @FindBy(xpath = "(//h3[@class='mb-0 mr-30 mb_xs_15px mb_sm_20px'])[3]")
+    public WebElement InaktiveCutsomerPage;
+
+    @FindBy(xpath = "//a[text()='Create Customer']")
+    public WebElement CreateCustomerButton;
+
+    @FindBy(xpath = "//h3[text()='Add New Customer']")
+    public WebElement AddNewCustomerPage;
 }
