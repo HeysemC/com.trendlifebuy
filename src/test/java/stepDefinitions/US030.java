@@ -40,9 +40,28 @@ public class US030 {
     }
     @Then("it should be confirmed that the information message type can be changed on the page that opens.")
     public void itShouldBeConfirmedThatTheInformationMessageTypeCanBeChangedOnThePageThatOpens() {
-        adminLoginPage.checkmark.click();
-        String actualtext=adminLoginPage.checkmark.getText();
-        System.out.println(actualtext);
-        System.out.println(adminLoginPage.tbody.getText());
+
+       adminLoginPage.checkmark.click();
+        ReusableMethods.waitFor(5);
+       Assert.assertFalse(adminLoginPage.checkmark.isSelected());
+       adminLoginPage.checkmark.click();
+       ReusableMethods.waitFor(5);
+       //Assert.assertTrue(adminLoginPage.checkmark.isSelected());
+    }
+
+    @And("Click on the Read All button to verify that the messages have been deleted from the window")
+    public void clickOnTheReadAllButtonToVerifyThatTheMessagesHaveBeenDeletedFromTheWindow() {
+        adminLoginPage.readAll.click();
+        adminLoginPage.zilButtonu.click();
+        ReusableMethods.waitFor(2);
+       Assert.assertTrue(adminLoginPage.noNotificationFound.isDisplayed());
+    }
+
+    @And("Clicking the View button will take you to the relevant page")
+    public void clickingTheViewButtonWillTakeYouToTheRelevantPage() {
+        adminLoginPage.view.click();
+        String expectedStr = Driver.getDriver().getTitle();
+        String actuaStr = "Profile Notifications";
+        Assert.assertTrue(expectedStr.contains(actuaStr));
     }
 }

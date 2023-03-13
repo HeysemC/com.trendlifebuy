@@ -18,7 +18,7 @@ Feature:[US030] As an administrator, I would like to have the notifications sect
     And Verified to redirect to user-notification page
     Then  Close the page
 
-  @US030
+
   Scenario: [TC003]It should be verified that the information message type (active/passive) can be changed
   in the Personal Notification Setting List on the User-Notification page.
     Given Navigate to "adminUrl"
@@ -26,3 +26,20 @@ Feature:[US030] As an administrator, I would like to have the notifications sect
     Then Click on the Notifications icon
     Then Click the Setting button
     Then it should be confirmed that the information message type can be changed on the page that opens.
+
+
+
+  Scenario: [TC005]IIt should be verified that when the View button is clicked on the menu that opens when
+  the Notifications icon is clicked, it redirects to the relevant page.
+    Given Navigate to "adminUrl"
+    And   Enter "validUsername" and "validPassword" and click sing in buttonn
+    Then Click on the Notifications icon
+    And   Clicking the View button will take you to the relevant page
+
+  @US030
+  Scenario: [TC004]It must be verified that the information messages (as read) are deleted from the window when the
+  Read All button is clicked in the menu that appears when clicking on the Notifications icon.
+    Given Navigate to "adminUrl"
+    And   Enter "validUsername" and "validPassword" and click sing in buttonn
+    Then Click on the Notifications icon
+    And Click on the Read All button to verify that the messages have been deleted from the window

@@ -52,7 +52,6 @@ Feature: Home page sayfasının üst menüsündeki fonksiyonların aktif olduğu
     * Register linkine tiklar ve yönlendirilen sayfayi dogrular.
     * Browser'i kapatir.
 
-  # Home linki https://trendlifebuy.com/ adresine yonlendiriyor
   Scenario: [TC010] home butonu ilgili sayfaya yönlendirmeli
     * Kullanici trendlifebuy.com adresine gider.
     * Home linkine tiklar ve yönlendirilen sayfayi dogrular.

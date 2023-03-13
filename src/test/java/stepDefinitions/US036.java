@@ -126,4 +126,98 @@ public class US036 {
 
 
     }
+
+
+    @And("Verify that the name in the Name field and the gift card name selected in the Gift Card List are the same")
+    public void verifyThatTheNameInTheNameFieldAndTheGiftCardNameSelectedInTheGiftCardListAreTheSame() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        String expectedName=adminGiftCardPage.tableFirstName.getText();
+        adminGiftCardPage.select.click();
+        adminGiftCardPage.view.click();
+        ReusableMethods.waitForVisibility(adminGiftCardPage.viewTableName,10);
+        String actualName=adminGiftCardPage.viewTableName.getText();
+        String regex = "[^a-zA-Z0-9]";
+        String cleanString = actualName.replaceAll(regex, "");
+        Assert.assertEquals(cleanString,expectedName);
+
+
+
+    }
+
+    @And("Click status button")
+    public void clickStatusButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.statusChange.click();
+
+
+
+    }
+
+    @And("Verify that the status of the gift card can be changed to active or inactive")
+    public void verifyThatTheStatusOfTheGiftCardCanBeChangedToActiveOrInactive() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        ReusableMethods.waitForVisibility(adminGiftCardPage.messageBox,8);
+        String ExpectedResult="Updated successfully!";
+        Assert.assertEquals(adminGiftCardPage.messageBox.getText(),ExpectedResult);
+    }
+
+    @And("Click print button")
+    public void clickPrintButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.printButton.click();
+    }
+
+    @And("Verify that it redirects the gift card to the print page")
+    public void verifyThatItRedirectsTheGiftCardToThePrintPage() {
+
+        ReusableMethods.switchToWindow("Trendlifebuy | Online Shopping | Admin Giftcard");
+        Assert.assertEquals(Driver.getDriver().getTitle(),"Trendlifebuy | Online Shopping | Admin Giftcard");
+        ReusableMethods.waitFor(2);
+    }
+
+    @And("Close the all pages")
+    public void closeTheAllPages() {
+        Driver.quitDriver();
+    }
+
+    @Then("Click edit button")
+    public void clickEditButton() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        adminGiftCardPage.edit.click();
+    }
+
+    @And("Verify that it redirects to the Edit Gift Card page")
+    public void verifyThatItRedirectsToTheEditGiftCardPage() {
+        adminGiftCardPage=new AdminGiftCardPage();
+
+        Assert.assertTrue(adminGiftCardPage.editGiftCardText.isDisplayed());
+
+
+    }
+
+    @And("Verify that required {string} on the Edit Gift Card page")
+    public void verifyThatRequiredOnTheEditGiftCardPage(String arg0) {
+        adminGiftCardPage=new AdminGiftCardPage();
+        SoftAssert softAssert=new SoftAssert();
+
+        if(arg0.equals("Name")){softAssert.assertTrue(adminGiftCardPage.editName.isDisplayed());}
+        if (arg0.equals("SKU")) {softAssert.assertTrue(adminGiftCardPage.editSku.isDisplayed());}
+        if (arg0.equals("Thumbnail Image")) {softAssert.assertTrue(adminGiftCardPage.editThumbnailImage.isDisplayed());}
+        if (arg0.equals("Selling Price")) {softAssert.assertTrue(adminGiftCardPage.editSellingPrice.isDisplayed());}
+        if (arg0.equals("Shipping Methods")) {softAssert.assertTrue(adminGiftCardPage.editShippingMethods.isDisplayed());}
+        if (arg0.equals("Galary Image")) {softAssert.assertTrue(adminGiftCardPage.editGalaryImage.isDisplayed());}
+        if (arg0.equals("Discount")) {softAssert.assertTrue(adminGiftCardPage.editDiscount.isDisplayed());}
+        if (arg0.equals("Discount Type")) {softAssert.assertTrue(adminGiftCardPage.editDiscountType.isDisplayed());}
+        if (arg0.equals("Status")) {softAssert.assertTrue(adminGiftCardPage.editStatus.isDisplayed());}
+        if (arg0.equals("Discount Period")) {softAssert.assertTrue(adminGiftCardPage.editDiscountPeriod.isDisplayed());}
+        if (arg0.equals("Tag")) {softAssert.assertTrue(adminGiftCardPage.editTags.isDisplayed());}
+        if (arg0.equals("Description")) {softAssert.assertTrue(adminGiftCardPage.editDescription.isDisplayed());}
+        softAssert.assertAll();
+
+    }
 }
