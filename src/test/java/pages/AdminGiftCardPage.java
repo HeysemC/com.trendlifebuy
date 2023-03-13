@@ -125,4 +125,26 @@ public class AdminGiftCardPage {
 
     @FindBy(xpath = "//*[text()='Tags (Comma Separated)']")
     public WebElement editTags;
+
+    @FindBy(xpath = "//input[@type='checkbox']")
+    public WebElement statusCheckbox;
+
+    @FindBy(id = "submit_btn")
+    public WebElement editUpdateButton;
+
+    @FindBy(xpath = "//input[@id='name']")
+    public WebElement editNameInput;
+
+    @FindBy(xpath = "//input[@id='sku']")
+    public WebElement editSkuInput;
+
+    @FindBy(xpath = "//input[@id='selling_price']")
+    public WebElement editSellingPriceInput;
+
+    @FindBy(xpath = "//input[@id='dataDeleteBtn']")
+    public WebElement editDataDeleteBtn;
+
+    @FindBy(xpath = "//input[@type='search']")
+    public WebElement quickSearch;
+
 }
