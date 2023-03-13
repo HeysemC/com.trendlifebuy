@@ -2,10 +2,7 @@
   Feature: As an administrator, I want the product lists page to
     be able to access the product lists on the site.
 
-
-
-
-Scenario:1-Verify that the Product List page is accessible from the Products menu.
+    Scenario:1-Verify that the Product List page is accessible from the Products menu.
 
     * Login to Trendlifeby page as admin
     * Click on the Products button
