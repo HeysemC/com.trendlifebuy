@@ -162,3 +162,50 @@ Feature:[US036] As an administrator, I would like to have a page that can perfor
     Then  Click quick search and enter an "gift"
     And   Verify that is displayed this "gift" in Gift Card List
 
+
+  Scenario:[TC014]When the Add New button is clicked on the Gift Cart List page,
+           it should be verified that it redirects to the Create Gift Card page.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    Then  Click Add New link
+    And   Verify that it redirects to the Create Gift Card page
+    And   Close the page
+
+  Scenario Outline:[TC015]Verify that Name, SKU, Thumbnail Image, Selling Price, Shipping Methods, Galary Image, Discount,
+           Discount Type, Status, Discount Period and Tag Texts are visible on the Create Gift Card page.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    Then  Click Add New link
+    And   Verify that required "<informations>" on the Create Gift Card page
+    And   Close the page
+    Examples:
+      | informations   |
+      |Name            |
+      |SKU             |
+      |Thumbnail Image |
+      |Selling Price   |
+      |Shipping Methods|
+      |Galary Image    |
+      |Discount        |
+      |Discount Type   |
+      |Status          |
+      |Discount Period |
+      |Tag             |
+      |Description     |
+
+  Scenario:[TC016] After entering the desired information in Name, SKU, Thumbnail Image, Selling Price, Shipping Methods,
+           Galary Image, Discount, Discount Type, Discount Period, Tag and Description Text Boxes, selecting Status,
+           clicking the Save button, it should be verified that a new Gift Card has been created.
+
+    Given Navigate to "adminUrl"
+    Then  Enter "validUsername" and "validPassword" and click sing in button
+    Then  Click giftCard button
+    Then  Click giftCardList
+    Then  Click Add New link
+    And   Create name "Emma",sku "birthDay",thumbnailImage,sellingPrice "200",shippingMethod,galaryImage,discount "20",discountType,discountPeriod,tag"#dogumGunu",description,status
