@@ -68,7 +68,7 @@ public class AdminProductsPage {
  @FindBy(xpath = "(//label[@class='switch_toggle'])[2]")
  public WebElement statusStun;
 
- @FindBy(xpath = "//div[@class='Updated successfully!']")
+ @FindBy(xpath = "(//*[contains(text(),'Updated successfully!')])[2]")
  public WebElement UpdatedSuccessfully;
 
  @FindBy(xpath = "//span[text()='SL']")
@@ -202,5 +202,84 @@ public WebElement variantButton;
  @FindBy(xpath = "(//a[@class='dropdown-item delete_product'])[2]")
  public WebElement  actionDelete;
 
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[1]")
+ public WebElement  ByskuSl;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[2]")
+ public WebElement  BySkuName;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[3]")
+ public WebElement  BySkuBrand;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[4]")
+ public WebElement  BySku;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[5]")
+ public WebElement  ByskuSellingPrice;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[6]")
+ public WebElement  ByskuImage;
+
+ @FindBy(xpath = "(//th[@aria-controls='SKUTable'])[7]")
+ public WebElement  ByskuAction;
+
+ @FindBy(xpath = "(//button[@class='dt-button buttons-collection buttons-colvis'])[5]")
+ public WebElement  ByskuFilter;
+
+ @FindBy(xpath = "(//button[@class='dt-button buttons-columnVisibility active'])[1]")
+ public WebElement  ByskuSlFilter;
+
+ @FindBy(xpath = "//span[text()='Name']")
+ public WebElement  ByskuNameFilter;
+
+ @FindBy(xpath = "//span[text()='Brand']")
+ public WebElement  ByskuBrandFilter;
+
+ @FindBy(xpath = "//span[text()='SKU']")
+ public WebElement  ByskuSkuFilter;
+
+ @FindBy(xpath = "//span[text()='Selling Price']")
+ public WebElement  ByskuSellingPriceFilter;
+
+ @FindBy(xpath = "//span[text()='Image']")
+ public WebElement  ByskuImageFilter;
+
+ @FindBy(xpath = "//span[text()='Action']")
+ public WebElement  ByskuActionFilter;
+
+ @FindBy(xpath = "(//button[@class='dt-button buttons-columnVisibility active'])[8]")
+ public WebElement  ByskuRestoreVisibilityFilter;
+
+ @FindBy(xpath = "(//input[@placeholder='Quick Search'])[5]")
+ public WebElement  ByskuQuickSearchTextBox;
+
+ @FindBy(xpath = "(//tbody)[5]")
+ public WebElement  ByskuQuickSearchTable;
+
+ @FindBy(xpath = "(//button[@data-toggle='dropdown'])[41]")
+ public WebElement  ByskuActionSelect;
+
+ @FindBy(xpath = "//div[@class='dropdown-menu dropdown-menu-right show']")
+ public WebElement  ByskuActionEdit;
+
+ @FindBy(xpath = "//input[@name='selling_price']")
+ public WebElement  ByskuActionEditSellingPrice;
+
+ @FindBy(xpath = "//button[@id='editSKUBtn']")
+ public WebElement  ByskuActionEditUpdate;
+
+ @FindBy(xpath = "//a[@id='SKUTable_next']")
+ public WebElement  ByskuForwardPage;
+
+ @FindBy(xpath = "//a[@id='SKUTable_previous']")
+ public WebElement  ByskuBackPage;
+
 
 }
+
+
+
+
+
+
+
