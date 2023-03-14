@@ -147,4 +147,77 @@ public class AdminGiftCardPage {
     @FindBy(xpath = "//input[@type='search']")
     public WebElement quickSearch;
 
+    @FindBy(xpath = "//*[text()='Add New']")
+    public WebElement addNew;
+
+    //admin dashboard >giftCard >giftCardList >addNew >giftCardList
+    @FindBy(xpath = "(//h3)[1]")
+    public WebElement giftCardTextH3;
+
+    @FindBy(xpath = "(//input[@class='primary_input_field'])[1]")
+    public WebElement createNameInput;
+
+    @FindBy(xpath = "(//input[@class='primary_input_field'])[2]")
+    public WebElement createSkuInput;
+
+    @FindBy(xpath = "(//input[@class='primary_input_field'])[3]")
+    public WebElement createSellingPriceInput;
+
+    @FindBy(xpath = "(//input[@class='primary_input_field'])[4]")
+    public WebElement createDiscountInput;
+
+   @FindBy(xpath = "//input[@id='date']")
+    public WebElement createDateInput;
+
+   @FindBy(xpath = "(//tbody)[1]/tr[4]/td[2]")
+    public WebElement firstBodyDate;
+
+   @FindBy(xpath = "(//tbody)[2]/tr[4]/td[2]")
+    public WebElement secondBodyDate;
+
+   @FindBy(xpath = "//*[text()='Apply']")
+    public WebElement applyDate;
+
+   @FindBy(xpath = "//span[text()='Email Delivery']")  //(//div[@class='col-lg-6'])[4]
+    public WebElement createShippingMethods;
+
+   @FindBy(xpath ="//div[@class='nice-select primary_select mb-25']")
+    public WebElement createDiscountType;
+
+   @FindBy(xpath = "(//input[@type='text'])[8]")
+    public WebElement createTags;
+
+   @FindBy(xpath = "(//input[@type='radio'])[1]")
+    public WebElement createActive;
+
+    @FindBy(xpath = "(//input[@type='radio'])[2]")
+    public WebElement createInactive;
+
+    @FindBy(xpath = "//input[@id='thumbnail_image']")
+    public WebElement createThumbnaiImage;
+
+    //@FindBy(xpath = "(//*[text()='Browse '])[2]")
+    //public WebElement createGalaryImage;
+
+    @FindBy(xpath = "//input[@id='galary_image']")
+    public WebElement createGalaryImage;
+
+    @FindBy(xpath = "//input[@id='discount']")
+    public WebElement createDiscount;
+
+    @FindBy(xpath = "//li[text()='Percentage']")
+    public WebElement selectPercentage;
+
+    @FindBy(xpath = "(//label[@class='primary_checkbox d-flex mr-12'])[1]")
+    public WebElement createStatuChange1;
+
+    @FindBy(xpath = "(//label[@class='primary_checkbox d-flex mr-12'])[2]")
+    public WebElement getCreateStatuChange2;
+
+    @FindBy(xpath ="//button[@id='submit_btn']")
+    public WebElement createSave;
+
+
+
+
 }
