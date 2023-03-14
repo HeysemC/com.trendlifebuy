@@ -97,6 +97,11 @@ public class AdminDashboardPageHeysem {
     @FindBy(xpath = "(//h4[@class='modal-title'])[9]")
     public WebElement createCategory;
 
+    //adminLogin>products>Add New Product>Category>Add New>Category>Add New(Heysem)
+    @FindBy(xpath = "//a[@id='add_new_category']")
+    public WebElement categoryAddNew;
+
+
     /*
     switch (string) {
             case "DATE":
