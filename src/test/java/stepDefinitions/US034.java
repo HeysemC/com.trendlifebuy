@@ -5,11 +5,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
+
 import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import pages.AdminDashboardPageHeysem;
@@ -130,6 +126,15 @@ public class US034 {
 
 
     @Then("Category Add New linkine tıklandığında Create Category penceresinin açıldığı doğrulanmalı")
-    public void categoryAddNewLinkineTıklandığındaCreateCategoryPenceresininAçıldığıDoğrulanmalı() {
+    public void categoryAddNewLinkineTiklandigindaCreateCategoryPenceresininAcildiğiDoğrulanmali() {
+        adminDashboardPageHeysem.addNewproduct.click();
+        adminDashboardPageHeysem.categoryAddNew.click();
+        ReusableMethods.waitFor(3);
+        Assert.assertTrue(adminDashboardPageHeysem.createCategory.isDisplayed());
+
+
+
+
+
     }
 }
