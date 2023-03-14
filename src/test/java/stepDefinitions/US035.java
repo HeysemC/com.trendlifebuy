@@ -101,9 +101,9 @@ public class US035 {
     public void verified_that_quick_search_text_box_button_is_active() {
 
         assertTrue(adminProductsPage.QuickSearchTextBox.isEnabled());
-        adminProductsPage.QuickSearchTextBox.sendKeys("Exclusive Bag 1");
+        adminProductsPage.QuickSearchTextBox.sendKeys("Exclusive Bag 1"+Keys.ENTER);
         ReusableMethods.waitFor(2);
-        Driver.closeDriver();
+
 
     }
 
@@ -113,7 +113,10 @@ public class US035 {
         adminProductsPage.firstbutton.click();
         assertTrue(adminProductsPage.statusStun.isEnabled());
         adminProductsPage.statusStun.click();
+        ReusableMethods.waitFor(5);
+        assertFalse(adminProductsPage.statusStun.isDisplayed());
         Driver.closeDriver();
+
 
     }
 
@@ -125,7 +128,10 @@ public class US035 {
         assertTrue(adminProductsPage.actionVıew.isDisplayed());
         adminProductsPage.actionVıew.click();
         assertTrue(adminProductsPage.productdisplay.isDisplayed());
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
+
+
 
     }
 
@@ -137,6 +143,7 @@ public class US035 {
         assertTrue(adminProductsPage.actionEdit.isDisplayed());
         adminProductsPage.actionEdit.click();
         assertTrue(adminProductsPage.Editproduct.isDisplayed());
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
 
     }
@@ -149,6 +156,8 @@ public class US035 {
         adminProductsPage.actionEdit.click();
         ReusableMethods.waitFor(2);
         assertTrue(adminProductsPage.GeneralInformationTable.isDisplayed());
+        //System.out.println(adminProductsPage.GeneralInformationTable);
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
 
     }
@@ -166,6 +175,7 @@ public class US035 {
         ReusableMethods.waitFor(2);
         adminProductsPage.variantButton.click();
         assertFalse(adminProductsPage.variantButton.isSelected());
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
 
     }
@@ -196,7 +206,8 @@ public class US035 {
         adminProductsPage.CrossSale.click();
         assertTrue(adminProductsPage.crosssaleName.isEnabled());
         assertTrue(adminProductsPage.UpdateButton.isEnabled());
-
+        ReusableMethods.waitFor(2);
+        Driver.closeDriver();
     }
 
     @Given("It has been verified that the Clone link is visible in the Action select tab in the Product List and when clicked, it redirects to the Clone Product page.")
@@ -209,6 +220,8 @@ public class US035 {
         assertTrue(adminProductsPage.actionClone.isDisplayed());
         adminProductsPage.actionClone.click();
         assertTrue(adminProductsPage.cloneProduct.isDisplayed());
+        ReusableMethods.waitFor(2);
+        Driver.closeDriver();
 
     }
 
@@ -263,6 +276,8 @@ public class US035 {
         ReusableMethods.waitFor(2);
         adminProductsPage.finalDelete.click();
         adminProductsPage.finalDelete2.click();
+        ReusableMethods.waitFor(3);
+        Driver.closeDriver();
 
     }
 
@@ -276,7 +291,8 @@ public class US035 {
         actions.keyDown(Keys.END).perform();
         actions.keyUp(Keys.END).perform();
         assertTrue(adminProductsPage.warningLetter.isDisplayed());
-
+        ReusableMethods.waitFor(2);
+        Driver.closeDriver();
     }
 
 
@@ -321,8 +337,8 @@ public class US035 {
         assertTrue(adminProductsPage.CrossSale.isEnabled());
         adminProductsPage.CrossSale.click();
         assertTrue(adminProductsPage.saveBtn.isEnabled());
-
-
+        ReusableMethods.waitFor(2);
+        Driver.closeDriver();
     }
 
     @Given("It has been verified that the Delete link is visible on the select tab in the Action column in the Product List and that the Delete operation can be performed when clicked.")
@@ -339,10 +355,132 @@ public class US035 {
         adminProductsPage.finalDelete2.click();
         ReusableMethods.waitFor(3);
         assertTrue(adminProductsPage.productListfirst.isDisplayed());
+        ReusableMethods.waitFor(3);
+        Driver.closeDriver();
 
 
     }
+    @Given("Verified that products are listed under SL, Name, Brand, SKU, Selling Price, Image, Action in Product By SKU List")
+    public void verified_that_products_are_listed_under_sl_name_brand_sku_selling_price_ımage_action_in_product_by_sku_list() {
+        ReusableMethods.waitFor(4);
+        assertTrue(adminProductsPage.productBySKUList.isDisplayed());
+        assertTrue(adminProductsPage.productBySKUList.isEnabled());
+        adminProductsPage.productBySKUList.click();
 
+      assertTrue(adminProductsPage.ByskuSl.isDisplayed());
+      assertTrue(adminProductsPage.BySkuName.isDisplayed());
+      assertTrue(adminProductsPage.BySkuBrand.isDisplayed());
+      assertTrue(adminProductsPage.BySku.isDisplayed());
+      assertTrue(adminProductsPage.ByskuSellingPrice.isDisplayed());
+      assertTrue(adminProductsPage.ByskuImage.isDisplayed());
+      assertTrue(adminProductsPage.ByskuAction.isDisplayed());
+      ReusableMethods.waitFor(3);
+      Driver.closeDriver();
+
+    }
+ @Given("It has been verified that it is possible to filter the List over Product By SKU titles.")
+public void ıt_has_been_verified_that_it_is_possible_to_filter_the_list_over_product_by_sku_titles() {
+
+     ReusableMethods.waitFor(4);
+     adminProductsPage.productBySKUList.click();
+     ReusableMethods.waitFor(3);
+     assertTrue(adminProductsPage.ByskuSl.isDisplayed());
+     assertTrue(adminProductsPage.BySkuName.isDisplayed());
+     assertTrue(adminProductsPage.BySkuBrand.isDisplayed());
+     assertTrue(adminProductsPage.BySku.isDisplayed());
+     assertTrue(adminProductsPage.ByskuSellingPrice.isDisplayed());
+     assertTrue(adminProductsPage.ByskuImage.isDisplayed());
+     assertTrue(adminProductsPage.ByskuAction.isDisplayed());
+     String firstTable = adminProductsPage.ByskuQuickSearchTable.getText();
+     //System.out.println(adminProductsPage.ByskuQuickSearchTable.getText());
+     adminProductsPage.ByskuFilter.click();
+     ReusableMethods.waitFor(3);
+     adminProductsPage.ByskuSlFilter.click();
+     adminProductsPage.ByskuNameFilter.click();
+     adminProductsPage.ByskuBrandFilter.click();
+     ReusableMethods.waitFor(2);
+     adminProductsPage.ByskuSkuFilter.click();
+     adminProductsPage.ByskuSellingPriceFilter.click();
+     ReusableMethods.waitFor(2);
+     adminProductsPage.ByskuImageFilter.click();
+     adminProductsPage.ByskuActionFilter.click();
+     ReusableMethods.waitFor(5);
+
+     actions.doubleClick(adminProductsPage.ByskuFilter).perform();
+     ReusableMethods.waitFor(3);
+     String secondTable = adminProductsPage.ByskuQuickSearchTable.getText();
+    // System.out.println(adminProductsPage.ByskuQuickSearchTable.getText());
+     assertNotEquals(firstTable,secondTable);
+     ReusableMethods.waitFor(3);
+     Driver.closeDriver();
+
+ }
+
+    @Given("Verified that the Product By SKU List can be searched with the Quick Search TextBox")
+    public void verified_that_the_product_by_sku_list_can_be_searched_with_the_quick_search_text_box() {
+        ReusableMethods.waitFor(4);
+        adminProductsPage.productBySKUList.click();
+        adminProductsPage.ByskuQuickSearchTextBox.sendKeys("gözlük"+Keys.ENTER);
+        System.out.println(adminProductsPage.ByskuQuickSearchTable.getText());
+        ReusableMethods.waitFor(2);
+        String expectedProduct = "gözlük";
+        String actualProduct = adminProductsPage.ByskuQuickSearchTable.getText();
+        assertTrue(actualProduct.contains(expectedProduct));
+        ReusableMethods.waitFor(3);
+        Driver.closeDriver();
+    }
+
+    @Given("It has been verified that when the Edit link is clicked on the select tab in the Action column, it redirects to the Edit page and the information is edited and saved.")
+    public void ıt_has_been_verified_that_when_the_edit_link_is_clicked_on_the_select_tab_in_the_action_column_it_redirects_to_the_edit_page_and_the_information_is_edited_and_saved() {
+        ReusableMethods.waitFor(4);
+        adminProductsPage.productBySKUList.click();
+        adminProductsPage.ByskuActionSelect.click();
+        adminProductsPage.ByskuActionEdit.click();
+        ReusableMethods.waitFor(2);
+        adminProductsPage.ByskuActionEditSellingPrice.clear();
+        adminProductsPage.ByskuActionEditSellingPrice.sendKeys("15");
+        adminProductsPage.ByskuActionEditUpdate.click();
+        ReusableMethods.waitFor(5);
+
+        System.out.println(adminProductsPage.ByskuQuickSearchTable.getText());
+        String expectedPrice = "15";
+        assertTrue(adminProductsPage.ByskuQuickSearchTable.getText().contains(expectedPrice));
+
+
+        adminProductsPage.ByskuActionSelect.click();
+        adminProductsPage.ByskuActionEdit.click();
+        ReusableMethods.waitFor(2);
+        adminProductsPage.ByskuActionEditSellingPrice.clear();
+        adminProductsPage.ByskuActionEditSellingPrice.sendKeys("16");
+        adminProductsPage.ByskuActionEditUpdate.click();
+        ReusableMethods.waitFor(5);
+        Driver.closeDriver();
+
+    }
+    @Given("Verified that it is switchable between pages in the Product By SKU List")
+    public void verified_that_it_is_switchable_between_pages_in_the_product_by_sku_list() {
+
+   ReusableMethods.waitFor(4);
+   adminProductsPage.productBySKUList.click();
+   ReusableMethods.waitFor(2);
+  String firstpage= adminProductsPage.ByskuQuickSearchTable.getText();
+     // System.out.println(firstpage);
+   adminProductsPage.ByskuForwardPage.click();
+   adminProductsPage.ByskuForwardPage.click();
+   adminProductsPage.ByskuBackPage.click();
+   adminProductsPage.ByskuBackPage.click();
+   adminProductsPage.ByskuForwardPage.click();
+   Driver.getDriver().navigate().forward();
+   Driver.getDriver().navigate().back();
+   String secondPage = adminProductsPage.ByskuQuickSearchTable.getText();
+   // System.out.println(secondPage);
+
+   assertNotEquals(firstpage, secondPage);
+   ReusableMethods.waitFor(3);
+   Driver.closeDriver();
+
+
+    }
 
 
 }
